@@ -19,6 +19,8 @@ jobs:
         run: eval $(ssh-agent -s) && ssh-add <(echo "$PRIVATE_KEY")
         env:
           PRIVATE_KEY: ${{ secrets.ssh_key }}
+      - name: Add known host
+        run: ssh-keyscan -H 46.101.67.169 >> .ssh/known_hosts
       - name: Stop service
         run: ssh jeremy@46.101.67.169 sudo /bin/systemctl stop new_kafi_telegram
       - name: Copy binary
