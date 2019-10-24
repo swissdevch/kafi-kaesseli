@@ -8,13 +8,18 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v1
+      - name: Install sqlite
+        run: sudo apt-get install libsqlite3-dev
       - name: Build
-        run: cargo build --all-features --release
+        run: cargo build --all-features
 
   test:
     name: 'Test'
     runs-on: ubuntu-18.04
     steps:
+      - uses: actions/checkout@v1
+      - name: Install sqlite
+        run: sudo apt-get install libsqlite3-dev
       - name: Run tests
         run: cargo test --all-features
 
@@ -25,6 +30,8 @@ jobs:
       - uses: actions/checkout@v1
       - name: Install components
         run: rustup component add rustfmt clippy
+      - name: Install sqlite
+        run: sudo apt-get install libsqlite3-dev
       - name: Run clippy
         run: cargo clippy --all-features -- -Dwarnings
       - name: Run clippy for tests
