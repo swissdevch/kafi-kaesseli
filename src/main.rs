@@ -35,13 +35,14 @@ fn main() {
 
     let mut bot = Bot::from_env("BOT_TOKEN").event_loop();
 
-    bot.unhandled(|context| match &context.update {
-        update::Kind::Message(types::Message {
+    bot.unhandled(|context| {
+        if let update::Kind::Message(types::Message {
             chat,
             kind: message::Kind::Text(text),
             from: Some(types::User { id, first_name, .. }),
             ..
-        }) => {
+        }) = &context.update
+        {
             let database_connection = match SqliteConnection::establish(DATABASE_NAME) {
                 Ok(database_connection) => database_connection,
                 Err(_) => {
@@ -89,7 +90,6 @@ fn main() {
                 tbot::spawn(reply);
             }
         }
-        _ => {}
     });
 
     bot.polling().start();
