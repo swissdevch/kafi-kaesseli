@@ -9,6 +9,6 @@ edition = "2018"
 [dependencies]
 kafi-kaesseli = { git = "https://github.com/jeremystucki/kafi-kaesseli" }
 tbot = "0.2"
-futures = "0.1"
-tokio = "0.1"
-diesel = { version = "1.4", features = ["chrono"] }
+diesel = { version = "1.4", features = ["sqlite"] }
+toml = "0.5"
+serde = { version = "1.0", features = ["derive"] }

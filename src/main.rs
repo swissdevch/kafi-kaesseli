@@ -1,6 +1,7 @@
 use diesel::{Connection, SqliteConnection};
 use kafi_kaesseli::currency_handling::currency_formatter::CurrencyFormatterImpl;
 use kafi_kaesseli::currency_handling::currency_parser::CurrencyParserImpl;
+use kafi_kaesseli::data_loader::{DataLoader, DataLoaderImpl};
 use kafi_kaesseli::message_handler::{MessageHandler, MessageHandlerImpl};
 use kafi_kaesseli::message_router::MessageRouterImpl;
 use kafi_kaesseli::models::{Message, User};
@@ -12,12 +13,24 @@ use tbot::types::parameters::Text;
 use tbot::types::{message, update};
 use tbot::{prelude::*, types, Bot};
 
+mod product_data_provider;
+
+use product_data_provider::ProductDataProviderImpl;
+
 static DATABASE_NAME: &str = "database.sqlite";
+static PRODUCT_DATA: &str = include_str!("../products.toml");
 
 fn main() {
     {
         let database_connection = SqliteConnection::establish(DATABASE_NAME).unwrap();
         kafi_kaesseli::run_migrations(&database_connection).unwrap();
+
+        let data_loader = DataLoaderImpl::new(
+            &database_connection,
+            Box::new(ProductDataProviderImpl::new(PRODUCT_DATA)),
+        );
+
+        data_loader.load_product_data().unwrap();
     }
 
     let mut bot = Bot::from_env("BOT_TOKEN").event_loop();
@@ -80,4 +93,17 @@ fn main() {
     });
 
     bot.polling().start();
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use kafi_kaesseli::data_loader::data_provider::DataProvider;
+
+    #[test]
+    fn validate_products_toml() {
+        let _ = ProductDataProviderImpl::new(PRODUCT_DATA)
+            .get_data()
+            .collect::<Vec<_>>();
+    }
 }
