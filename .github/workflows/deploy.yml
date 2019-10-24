@@ -20,10 +20,10 @@ jobs:
         env:
           PRIVATE_KEY: ${{ secrets.ssh_key }}
       - name: Add known host
-        run: ssh-keyscan -H 46.101.67.169 >> .ssh/known_hosts
+        run: ssh-keyscan -H 46.101.67.169 >> known_hosts
       - name: Stop service
-        run: ssh jeremy@46.101.67.169 sudo /bin/systemctl stop new_kafi_telegram
+        run: ssh -o UserKnownHostsFile=known_hosts jeremy@46.101.67.169 sudo /bin/systemctl stop new_kafi_telegram
       - name: Copy binary
-        run: scp target/release/swissdev-kafi-kaesseli jeremy@46.101.67.169:/home/jeremy/kafi
+        run: scp -o UserKnownHostsFile=known_hosts target/release/swissdev-kafi-kaesseli jeremy@46.101.67.169:/home/jeremy/kafi
       - name: Start service
-        run: ssh jeremy@46.101.67.169 sudo /bin/systemctl start new_kafi_telegram
+        run: ssh -o UserKnownHostsFile=known_hosts jeremy@46.101.67.169 sudo /bin/systemctl start new_kafi_telegram
