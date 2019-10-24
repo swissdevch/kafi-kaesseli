@@ -38,25 +38,3 @@ jobs:
         run: cargo clippy --all-features --tests -- -Dwarnings
       - name: Run rustfmt
         run: cargo fmt --all -- --check
-
-  deploy:
-    name: 'Deploy'
-    on:
-      - master
-    runs-on: ubuntu-18.04
-    steps:
-      - uses: actions/checkout@v1
-      - name: Install sqlite
-        run: sudo apt-get install libsqlite3-dev
-      - name: Build
-        run: cargo build --all-features --release
-      - name: Add ssh key
-        run: eval $(ssh-agent -s) && ssh-add <(echo "$PRIVATE_KEY")
-        env:
-          PRIVATE_KEY: ${{ secrets.ssh_key }}
-      - name: Stop service
-        run: ssh jeremy@46.101.67.169 sudo /bin/systemctl stop new_kafi_telegram
-      - name: Copy binary
-        run: scp target/release/swissdev-kafi-kaesseli jeremy@46.101.67.169:/home/jeremy/kafi
-      - name: Start service
-        run: ssh jeremy@46.101.67.169 sudo /bin/systemctl start new_kafi_telegram
