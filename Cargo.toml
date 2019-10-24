@@ -4,8 +4,6 @@ version = "0.1.0"
 authors = ["Jeremy Stucki <jeremy@myelin.ch>"]
 edition = "2018"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
 [dependencies]
 kafi-kaesseli = { git = "https://github.com/jeremystucki/kafi-kaesseli" }
 tbot = "0.2"
