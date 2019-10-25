@@ -11,19 +11,15 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v1
-      - name: Install sqlite
-        run: sudo apt-get install libsqlite3-dev
-      - name: Build
-        run: cargo build --all-features --release
       - name: Add ssh key
         run: echo "$PRIVATE_KEY" > id_rsa && chmod 600 id_rsa
         env:
           PRIVATE_KEY: ${{ secrets.ssh_key }}
       - name: Add known host
         run: ssh-keyscan -H 46.101.67.169 >> known_hosts
+      - name: Copy binary
+        run: ssh -i id_rsa -o UserKnownHostsFile=known_hosts jeremy@46.101.67.169 cargo install -f --git https://github.com/jeremystucki/swissdev-kafi-kaesseli
       - name: Stop service
         run: ssh -i id_rsa -o UserKnownHostsFile=known_hosts jeremy@46.101.67.169 sudo /bin/systemctl stop new_kafi_telegram
-      - name: Copy binary
-        run: scp -i id_rsa -o UserKnownHostsFile=known_hosts target/release/swissdev-kafi-kaesseli jeremy@46.101.67.169:/home/jeremy/kafi
       - name: Start service
         run: ssh -i id_rsa -o UserKnownHostsFile=known_hosts jeremy@46.101.67.169 sudo /bin/systemctl start new_kafi_telegram
