@@ -2,3 +2,8 @@
 identifier = "budget"
 name = "M-Budget Energy Drink"
 price = 50
+
+[[product]]
+identifier = "duplo"
+name = "Kinder Duplo Riegel"
+price = 30
