@@ -22,3 +22,28 @@ price = 70
 identifier = "noir"
 name = "Noir Special Riegel"
 price = 100
+
+[[product]]
+identifier = "snickers"
+name = "Snickers"
+price = 50
+
+[[product]]
+identifier = "mars"
+name = "Mars"
+price = 50
+
+[[product]]
+identifier = "twix"
+name = "Twix"
+price = 50
+
+[[product]]
+identifier = "farmer"
+name = "Farmer Soft"
+price = 50
+
+[[product]]
+identifier = "brownie"
+name = "Farmer Brownie"
+price = 100
