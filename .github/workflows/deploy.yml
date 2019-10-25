@@ -16,7 +16,7 @@ jobs:
       - name: Build
         run: cargo build --all-features --release
       - name: Add ssh key
-        run: echo "$PRIVATE_KEY" > id_rsa
+        run: echo "$PRIVATE_KEY" > id_rsa && chmod 600 id_rsa
         env:
           PRIVATE_KEY: ${{ secrets.ssh_key }}
       - name: Add known host
