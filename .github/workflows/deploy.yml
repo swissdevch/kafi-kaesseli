@@ -17,8 +17,8 @@ jobs:
           PRIVATE_KEY: ${{ secrets.ssh_key }}
       - name: Add known host
         run: ssh-keyscan -H 46.101.67.169 >> known_hosts
-      - name: Copy binary
-        run: ssh -i id_rsa -o UserKnownHostsFile=known_hosts jeremy@46.101.67.169 cargo install -f --git https://github.com/jeremystucki/swissdev-kafi-kaesseli
+      - name: Build
+        run: ssh -i id_rsa -o UserKnownHostsFile=known_hosts jeremy@46.101.67.169 /home/jeremy/.cargo/bin/cargo install -f --git https://github.com/jeremystucki/swissdev-kafi-kaesseli
       - name: Stop service
         run: ssh -i id_rsa -o UserKnownHostsFile=known_hosts jeremy@46.101.67.169 sudo /bin/systemctl stop new_kafi_telegram
       - name: Start service
