@@ -16,14 +16,14 @@ jobs:
       - name: Build
         run: cargo build --all-features --release
       - name: Add ssh key
-        run: eval $(ssh-agent -s) && ssh-add <(echo "$PRIVATE_KEY")
+        run: echo "$PRIVATE_KEY" > id_rsa
         env:
           PRIVATE_KEY: ${{ secrets.ssh_key }}
       - name: Add known host
         run: ssh-keyscan -H 46.101.67.169 >> known_hosts
       - name: Stop service
-        run: ssh -o UserKnownHostsFile=known_hosts jeremy@46.101.67.169 sudo /bin/systemctl stop new_kafi_telegram
+        run: ssh -i id_rsa -o UserKnownHostsFile=known_hosts jeremy@46.101.67.169 sudo /bin/systemctl stop new_kafi_telegram
       - name: Copy binary
-        run: scp -o UserKnownHostsFile=known_hosts target/release/swissdev-kafi-kaesseli jeremy@46.101.67.169:/home/jeremy/kafi
+        run: scp -i id_rsa -o UserKnownHostsFile=known_hosts target/release/swissdev-kafi-kaesseli jeremy@46.101.67.169:/home/jeremy/kafi
       - name: Start service
-        run: ssh -o UserKnownHostsFile=known_hosts jeremy@46.101.67.169 sudo /bin/systemctl start new_kafi_telegram
+        run: ssh -i id_rsa -o UserKnownHostsFile=known_hosts jeremy@46.101.67.169 sudo /bin/systemctl start new_kafi_telegram
