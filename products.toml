@@ -2,3 +2,48 @@
 identifier = "budget"
 name = "M-Budget Energy Drink"
 price = 50
+
+[[product]]
+identifier = "duplo"
+name = "Kinder Duplo Riegel"
+price = 30
+
+[[product]]
+identifier = "nocco"
+name = "Nocco Energy"
+price = 275
+
+[[product]]
+identifier = "cola"
+name = "Cola Zero"
+price = 70
+
+[[product]]
+identifier = "noir"
+name = "Noir Special Riegel"
+price = 100
+
+[[product]]
+identifier = "snickers"
+name = "Snickers"
+price = 50
+
+[[product]]
+identifier = "mars"
+name = "Mars"
+price = 50
+
+[[product]]
+identifier = "twix"
+name = "Twix"
+price = 50
+
+[[product]]
+identifier = "farmer"
+name = "Farmer Soft"
+price = 50
+
+[[product]]
+identifier = "brownie"
+name = "Farmer Brownie"
+price = 100
