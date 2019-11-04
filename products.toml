@@ -13,10 +13,10 @@ identifier = "nocco"
 name = "Nocco Energy"
 price = 275
 
-# [[product]]
-# identifier = "cola"
-# name = "Cola Zero"
-# price = 70
+[[product]]
+identifier = "cola"
+name = "Cola Zero"
+price = 70
 
 [[product]]
 identifier = "noir"
@@ -47,3 +47,13 @@ price = 50
 identifier = "brownie"
 name = "Farmer Brownie"
 price = 100
+
+[[product]]
+identifier = "smirnoff"
+name = "Smirnoff Flasche"
+price = 235
+
+[[product]]
+identifier = "ragusa"
+name = "Ragusa 25g"
+price = 80
