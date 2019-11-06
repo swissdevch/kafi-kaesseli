@@ -57,3 +57,8 @@ price = 235
 identifier = "ragusa"
 name = "Ragusa 25g"
 price = 80
+
+[[product]]
+identifier = "clementine"
+name = "Clementine"
+price = 20
