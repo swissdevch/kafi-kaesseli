@@ -59,6 +59,11 @@ name = "Ragusa 25g"
 price = 80
 
 [[product]]
-identifier = "clementine"
-name = "Clementine"
-price = 20
+identifier = "babybel"
+name = "Mini Babybel"
+price = 40
+
+[[product]]
+identifier = "hanuta"
+name = "Hanuta"
+price = 25
