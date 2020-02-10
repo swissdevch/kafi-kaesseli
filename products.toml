@@ -9,11 +9,6 @@ name = "Kinder Duplo Riegel"
 price = 30
 
 [[product]]
-identifier = "nocco"
-name = "Nocco Energy"
-price = 275
-
-[[product]]
 identifier = "cola"
 name = "Cola Zero"
 price = 70
