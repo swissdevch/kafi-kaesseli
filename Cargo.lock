@@ -336,7 +336,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 [[package]]
 name = "kafi-kaesseli"
 version = "0.1.0"
-source = "git+https://github.com/jeremystucki/kafi-kaesseli#a564963d6316eaf27c39153165fa9470305208b7"
+source = "git+https://github.com/jeremystucki/kafi-kaesseli#c39e8e0225d851fea40db20062e8a4b3b4febb5e"
 dependencies = [
  "chrono 0.4.10 (registry+https://github.com/rust-lang/crates.io-index)",
  "diesel 1.4.3 (registry+https://github.com/rust-lang/crates.io-index)",
