@@ -9,14 +9,24 @@ name = "Kong Strong Energy Drink"
 price = 50
 
 [[product]]
-identifier = "duplo"
-name = "Kinder Duplo Riegel"
-price = 30
-
-[[product]]
 identifier = "cola"
 name = "Cola Zero"
 price = 70
+
+[[product]]
+identifier = "caprisun"
+name = "Capri Sonne"
+price = 50
+
+[[product]]
+identifier = "smirnoff"
+name = "Smirnoff Flasche"
+price = 235
+
+[[product]]
+identifier = "duplo"
+name = "Kinder Duplo Riegel"
+price = 30
 
 [[product]]
 identifier = "noir"
@@ -47,11 +57,6 @@ price = 50
 identifier = "brownie"
 name = "Farmer Brownie"
 price = 100
-
-[[product]]
-identifier = "smirnoff"
-name = "Smirnoff Flasche"
-price = 235
 
 [[product]]
 identifier = "ragusa"
