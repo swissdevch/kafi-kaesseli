@@ -24,6 +24,31 @@ name = "Noir Special Riegel"
 price = 80
 
 [[product]]
+identifier = "gipfel"
+name = "Nuss-Nougat-Croisant"
+price = 30
+
+[[product]]
+identifier = "snickers"
+name = "Snickers"
+price = 50
+
+[[product]]
+identifier = "mars"
+name = "Mars"
+price = 50
+
+[[product]]
+identifier = "twix"
+name = "Twix"
+price = 50
+
+[[product]]
+identifier = "hanuta"
+name = "Hanuta"
+price = 30
+
+[[product]]
 identifier = "farmer"
 name = "Farmer Soft"
 price = 50
