@@ -24,11 +24,6 @@ name = "Noir Special Riegel"
 price = 80
 
 [[product]]
-identifier = "gipfel"
-name = "Nuss-Nougat Croissant"
-price = 30
-
-[[product]]
 identifier = "snickers"
 name = "Snickers"
 price = 50
@@ -44,16 +39,6 @@ name = "Twix"
 price = 50
 
 [[product]]
-identifier = "hanuta"
-name = "Hanuta"
-price = 30
-
-[[product]]
 identifier = "farmer"
-name = "Farmer Soft"
-price = 50
-
-[[product]]
-identifier = "schoggi"
-name = "Choco Drink"
-price = 50
+name = "Farmer"
+price = 40
